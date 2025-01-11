@@ -4,7 +4,8 @@ CREATE TABLE "User" (
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
-    "role" TEXT NOT NULL DEFAULT 'user',
+    "userRole" TEXT NOT NULL DEFAULT 'user',
+    "hash" TEXT NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -15,7 +16,8 @@ CREATE TABLE "Book" (
     "title" TEXT NOT NULL,
     "author" TEXT NOT NULL,
     "genre" TEXT NOT NULL,
-    "isAvailable" BOOLEAN NOT NULL DEFAULT true,
+    "publishedDate" TIMESTAMP(3),
+    "isAvailable" BOOLEAN DEFAULT true,
 
     CONSTRAINT "Book_pkey" PRIMARY KEY ("id")
 );
@@ -27,6 +29,7 @@ CREATE TABLE "BorrowedBook" (
     "bookId" INTEGER NOT NULL,
     "borrowDate" TIMESTAMP(3) NOT NULL,
     "returnDate" TIMESTAMP(3),
+    "publishedDate" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "BorrowedBook_pkey" PRIMARY KEY ("id")
 );

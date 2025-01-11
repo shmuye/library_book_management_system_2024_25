@@ -9,4 +9,9 @@ export class AuthDto {
     @IsNotEmpty()
     @IsString()
     password: string
+    name?: string
+    hash?: string
+    @IsString()
+    userRole?: string
+
 }
